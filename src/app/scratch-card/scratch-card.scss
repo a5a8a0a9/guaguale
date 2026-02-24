@@ -20,11 +20,11 @@
 .game-title {
 	font-size: 1.75rem;
 	font-weight: 800;
-	background: linear-gradient(135deg, #ffd700, #ffaa00, #ff6b00);
+	background: linear-gradient(135deg, #ffd700, #ff4444, #ffd700);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+	filter: drop-shadow(0 0 20px rgba(255, 68, 68, 0.4));
 	letter-spacing: 0.05em;
 }
 
@@ -40,10 +40,11 @@
 	border-radius: 16px;
 	overflow: hidden;
 	box-shadow:
-		0 0 0 3px rgba(255, 215, 0, 0.6),
+		0 0 0 3px rgba(255, 215, 0, 0.7),
+		0 0 0 6px rgba(200, 30, 30, 0.6),
 		0 8px 32px rgba(0, 0, 0, 0.5),
-		0 0 60px rgba(255, 215, 0, 0.15);
-	background: linear-gradient(145deg, #1a1a2e, #16213e);
+		0 0 50px rgba(255, 68, 68, 0.15);
+	background: linear-gradient(145deg, #8b1a1a, #4a0e0e);
 }
 
 // ── Prize Layer ──
@@ -55,13 +56,15 @@
 	justify-content: center;
 	align-items: center;
 	gap: 0.5rem;
-	background: linear-gradient(145deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
+	background:
+		radial-gradient(ellipse at center, rgba(255, 215, 0, 0.08) 0%, transparent 70%),
+		linear-gradient(145deg, #8b1a1a 0%, #b22222 40%, #8b1a1a 100%);
 }
 
 .prize-label {
 	font-size: 0.875rem;
 	font-weight: 600;
-	color: rgba(255, 215, 0, 0.7);
+	color: rgba(255, 215, 0, 0.8);
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
 }
@@ -69,11 +72,11 @@
 .prize-amount {
 	font-size: 2.5rem;
 	font-weight: 900;
-	background: linear-gradient(135deg, #ffd700, #ffaa00);
+	background: linear-gradient(135deg, #ffd700, #ffec80, #ffd700);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.4));
+	filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.5));
 	transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
 	&.revealed {
@@ -83,7 +86,7 @@
 
 .prize-decoration {
 	font-size: 0.85rem;
-	color: rgba(255, 215, 0, 0.6);
+	color: rgba(255, 215, 0, 0.7);
 	letter-spacing: 0.1em;
 	font-weight: 600;
 	max-width: 280px;
@@ -120,7 +123,7 @@
 
 .coin-label {
 	font-size: 0.85rem;
-	color: rgba(255, 255, 255, 0.6);
+	color: rgba(255, 200, 150, 0.6);
 	font-weight: 500;
 }
 
@@ -135,18 +138,18 @@
 	align-items: center;
 	gap: 0.35rem;
 	padding: 0.6rem 0.8rem;
-	border: 2px solid rgba(255, 255, 255, 0.1);
+	border: 2px solid rgba(255, 215, 0, 0.15);
 	border-radius: 12px;
-	background: rgba(255, 255, 255, 0.05);
-	color: rgba(255, 255, 255, 0.7);
+	background: rgba(139, 26, 26, 0.4);
+	color: rgba(255, 200, 150, 0.7);
 	cursor: pointer;
 	transition: all 0.25s ease;
 	backdrop-filter: blur(4px);
 	touch-action: manipulation;
 
 	&:hover {
-		border-color: rgba(255, 215, 0, 0.4);
-		background: rgba(255, 215, 0, 0.08);
+		border-color: rgba(255, 215, 0, 0.5);
+		background: rgba(255, 215, 0, 0.1);
 		transform: translateY(-2px);
 	}
 
@@ -164,7 +167,7 @@
 	justify-content: center;
 	border-radius: 50%;
 	background: linear-gradient(135deg, #ffd700, #daa520);
-	color: #1a1a2e;
+	color: #4a0e0e;
 	font-weight: 800;
 	font-size: 0.7rem;
 	box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3);
@@ -180,13 +183,13 @@
 	width: 320px;
 	height: 6px;
 	border-radius: 3px;
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(255, 215, 0, 0.1);
 	overflow: hidden;
 }
 
 .progress-bar {
 	height: 100%;
-	background: linear-gradient(90deg, #ffd700, #ff6b00);
+	background: linear-gradient(90deg, #cc2222, #ffd700);
 	border-radius: 3px;
 	transition: width 0.15s ease;
 }
@@ -201,15 +204,15 @@
 
 .progress-text {
 	font-size: 0.75rem;
-	color: rgba(255, 255, 255, 0.4);
+	color: rgba(255, 200, 150, 0.4);
 }
 
 // ── Reveal Button ──
 .reveal-btn {
 	padding: 0.5rem 1.25rem;
-	border: 2px solid rgba(255, 215, 0, 0.5);
+	border: 2px solid rgba(255, 215, 0, 0.6);
 	border-radius: 50px;
-	background: rgba(255, 215, 0, 0.1);
+	background: rgba(200, 30, 30, 0.3);
 	color: #ffd700;
 	font-size: 0.85rem;
 	font-weight: 700;
@@ -218,9 +221,9 @@
 	touch-action: manipulation;
 
 	&:hover {
-		background: rgba(255, 215, 0, 0.2);
+		background: rgba(200, 30, 30, 0.5);
 		border-color: #ffd700;
-		box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+		box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 	}
 
 	&:active {
@@ -238,19 +241,24 @@
 	padding: 0.85rem 2.5rem;
 	border: none;
 	border-radius: 50px;
-	background: linear-gradient(135deg, #ffd700, #ff8c00);
-	color: #1a1a2e;
+	background: linear-gradient(135deg, #cc2222, #ee3333);
+	color: #ffd700;
 	font-size: 1.1rem;
 	font-weight: 700;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+	box-shadow:
+		0 4px 20px rgba(200, 30, 30, 0.4),
+		inset 0 1px 0 rgba(255, 255, 255, 0.15);
 	animation: fade-in-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 	touch-action: manipulation;
+	letter-spacing: 0.05em;
 
 	&:hover {
 		transform: translateY(-3px) scale(1.05);
-		box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+		box-shadow:
+			0 8px 30px rgba(200, 30, 30, 0.5),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
 	}
 
 	&:active {
@@ -265,8 +273,8 @@
 	gap: 1.25rem;
 	padding: 0.75rem 1.5rem;
 	border-radius: 12px;
-	background: rgba(255, 255, 255, 0.05);
-	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(139, 26, 26, 0.3);
+	border: 1px solid rgba(255, 215, 0, 0.12);
 	backdrop-filter: blur(4px);
 	animation: fade-in-up 0.4s ease;
 }
@@ -280,7 +288,7 @@
 
 .stat-label {
 	font-size: 0.65rem;
-	color: rgba(255, 255, 255, 0.4);
+	color: rgba(255, 200, 150, 0.4);
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
@@ -289,10 +297,10 @@
 .stat-value {
 	font-size: 0.95rem;
 	font-weight: 700;
-	color: rgba(255, 255, 255, 0.85);
+	color: rgba(255, 230, 200, 0.85);
 
 	&.highlight {
-		background: linear-gradient(135deg, #ffd700, #ffaa00);
+		background: linear-gradient(135deg, #ffd700, #ffec80);
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -302,7 +310,7 @@
 .stat-divider {
 	width: 1px;
 	height: 28px;
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(255, 215, 0, 0.15);
 }
 
 // ── Animations ──
