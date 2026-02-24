@@ -1,4 +1,4 @@
-import { DecimalPipe } from '@angular/common';
+import { DecimalPipe, PercentPipe } from '@angular/common';
 import {
 	afterNextRender,
 	ChangeDetectionStrategy,
@@ -45,17 +45,24 @@ const COINS: Coin[] = [
 	{ name: '50元', icon: '50', radius: 22, displaySize: 42 },
 ];
 
+const TOTAL_WEIGHT = PRIZES.reduce((sum, p) => sum + p.weight, 0);
+
 @Component({
 	selector: 'yo-scratch-card',
 	templateUrl: './scratch-card.html',
 	styleUrl: './scratch-card.scss',
-	imports: [DecimalPipe],
+	imports: [DecimalPipe, PercentPipe],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScratchCard {
 	readonly coins = COINS;
+	readonly prizes = PRIZES;
+	readonly totalWeight = TOTAL_WEIGHT;
+
+	private readonly dialogRef = viewChild<ElementRef<HTMLDialogElement>>('prizeDialog');
 	readonly selectedCoin = signal<Coin>(COINS[1]);
 	readonly revealed = signal(false);
+	readonly hasScratched = signal(false);
 	readonly scratchPercent = signal(0);
 	readonly prizeAmount = signal(0);
 	readonly prizeMessage = signal('');
@@ -88,6 +95,14 @@ export class ScratchCard {
 		this.selectedCoin.set(coin);
 	}
 
+	openPrizeTable(): void {
+		this.dialogRef()?.nativeElement.showModal();
+	}
+
+	closePrizeTable(): void {
+		this.dialogRef()?.nativeElement.close();
+	}
+
 	reveal(): void {
 		if (this.revealed()) return;
 		this.revealed.set(true);
@@ -96,15 +111,18 @@ export class ScratchCard {
 	}
 
 	restart(): void {
-		this.revealed.set(false);
+		this.hasScratched.set(false);
 		this.scratchPercent.set(0);
 		this.moveCount = 0;
+		// 先畫好遮罩再顯示
 		this.initCard();
+		this.revealed.set(false);
 	}
 
 	onPointerDown(e: PointerEvent): void {
 		if (this.revealed()) return;
 		this.isScratching = true;
+		this.hasScratched.set(true);
 		const canvas = this.canvasRef().nativeElement;
 		canvas.setPointerCapture(e.pointerId);
 		this.scratch(e);

@@ -5,9 +5,13 @@
 		<div class="card" #cardContainer>
 			<!-- 獎金底層 -->
 			<div class="prize-layer">
+				@if (hasScratched() || revealed()) {
 				<div class="prize-label">獎金</div>
 				<div class="prize-amount" [class.revealed]="revealed()">{{ prizeDisplay() }}</div>
 				<div class="prize-decoration" [class.revealed]="revealed()">{{ prizeMessage() }}</div>
+				} @else {
+				<div class="prize-label">❓❓❓</div>
+				}
 			</div>
 			<!-- 刮除層 Canvas -->
 			<canvas
@@ -65,4 +69,33 @@
 			<span class="stat-value highlight">${{ totalWinnings() | number }}</span>
 		</div>
 	</div>
+
+	<!-- 獎金機率按鈕 -->
+	<button class="info-btn" (click)="openPrizeTable()">📋 獎金機率表</button>
+
+	<!-- 獎金機率 Dialog -->
+	<dialog #prizeDialog class="prize-dialog" (click)="closePrizeTable()">
+		<div class="dialog-content" (click)="$event.stopPropagation()">
+			<div class="dialog-header">
+				<h2>🎰 獎金機率表</h2>
+				<button class="dialog-close" (click)="closePrizeTable()">✕</button>
+			</div>
+			<table class="prize-table">
+				<thead>
+					<tr>
+						<th>獎金</th>
+						<th>機率</th>
+					</tr>
+				</thead>
+				<tbody>
+					@for (prize of prizes; track prize.amount) {
+					<tr [class.jackpot]="prize.amount >= 1000000">
+						<td class="amount-cell">${{ prize.amount | number }}</td>
+						<td class="prob-cell">{{ prize.weight / totalWeight | percent: '1.2-2' }}</td>
+					</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</dialog>
 </div>

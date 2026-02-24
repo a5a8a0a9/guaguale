@@ -313,6 +313,143 @@
 	background: rgba(255, 215, 0, 0.15);
 }
 
+// ── Info Button ──
+.info-btn {
+	padding: 0.4rem 1rem;
+	border: 1px solid rgba(255, 215, 0, 0.25);
+	border-radius: 50px;
+	background: transparent;
+	color: rgba(255, 200, 150, 0.5);
+	font-size: 0.75rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.25s ease;
+	touch-action: manipulation;
+
+	&:hover {
+		border-color: rgba(255, 215, 0, 0.5);
+		color: rgba(255, 215, 0, 0.8);
+		background: rgba(255, 215, 0, 0.05);
+	}
+}
+
+// ── Prize Dialog ──
+.prize-dialog {
+	border: none;
+	border-radius: 16px;
+	padding: 0;
+	background: transparent;
+	max-width: 90vw;
+	max-height: 80vh;
+	margin: auto;
+	position: fixed;
+	inset: 0;
+	width: fit-content;
+	height: fit-content;
+
+	&::backdrop {
+		background: rgba(0, 0, 0, 0.7);
+		backdrop-filter: blur(4px);
+	}
+
+	&[open] {
+		animation: fade-in-up 0.3s ease;
+	}
+}
+
+.dialog-content {
+	background: linear-gradient(145deg, #3a0e0e, #2a0a0a);
+	border: 2px solid rgba(255, 215, 0, 0.3);
+	border-radius: 16px;
+	padding: 1.5rem;
+	color: #f5e6d0;
+	overflow-y: auto;
+	max-height: 75vh;
+}
+
+.dialog-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+
+	h2 {
+		font-size: 1.1rem;
+		font-weight: 700;
+		background: linear-gradient(135deg, #ffd700, #ffaa00);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin: 0;
+	}
+}
+
+.dialog-close {
+	width: 32px;
+	height: 32px;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.05);
+	color: rgba(255, 200, 150, 0.6);
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background: rgba(200, 30, 30, 0.3);
+		border-color: rgba(200, 30, 30, 0.5);
+		color: #ff6666;
+	}
+}
+
+.prize-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.8rem;
+
+	th {
+		text-align: left;
+		padding: 0.5rem 0.75rem;
+		color: rgba(255, 215, 0, 0.7);
+		font-weight: 600;
+		font-size: 0.7rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+	}
+
+	td {
+		padding: 0.45rem 0.75rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	tr:last-child td {
+		border-bottom: none;
+	}
+
+	.jackpot {
+		td {
+			color: #ffd700;
+			font-weight: 700;
+		}
+	}
+}
+
+.amount-cell {
+	font-weight: 600;
+	color: rgba(255, 230, 200, 0.9);
+	white-space: nowrap;
+}
+
+.prob-cell {
+	color: rgba(255, 200, 150, 0.6);
+	white-space: nowrap;
+	text-align: end;
+}
+
 // ── Animations ──
 @keyframes prize-pop {
 	0% {
