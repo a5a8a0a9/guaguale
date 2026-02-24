@@ -1,0 +1,70 @@
+<div class="scratch-game">
+	<h1 class="game-title">🎰 刮刮樂 🎰</h1>
+
+	<div class="card-wrapper">
+		<div class="card" #cardContainer>
+			<!-- 獎金底層 -->
+			<div class="prize-layer">
+				<div class="prize-label">獎金</div>
+				<div class="prize-amount" [class.revealed]="revealed()">{{ prizeDisplay() }}</div>
+				<div class="prize-decoration" [class.revealed]="revealed()">{{ prizeMessage() }}</div>
+			</div>
+			<!-- 刮除層 Canvas -->
+			<canvas
+				class="scratch-canvas"
+				#scratchCanvas
+				[class.hidden]="revealed()"
+				(pointerdown)="onPointerDown($event)"
+				(pointermove)="onPointerMove($event)"
+				(pointerup)="onPointerUp()"
+				(pointerleave)="onPointerUp()"
+			></canvas>
+		</div>
+	</div>
+
+	<!-- 硬幣選擇器 -->
+	<div class="coin-selector">
+		<span class="coin-label">選擇硬幣：</span>
+		<div class="coin-options">
+			@for (coin of coins; track coin.name) {
+			<button class="coin-btn" [class.active]="selectedCoin() === coin" (click)="selectCoin(coin)">
+				<span class="coin-icon" [style.width.px]="coin.displaySize" [style.height.px]="coin.displaySize">
+					{{ coin.icon }}
+				</span>
+				<span class="coin-name">{{ coin.name }}</span>
+			</button>
+			}
+		</div>
+	</div>
+
+	<!-- 刮除進度 + 開獎按鈕 -->
+	@if (!revealed()) {
+	<div class="progress-bar-container">
+		<div class="progress-bar" [style.width.%]="scratchPercent()"></div>
+	</div>
+	<div class="scratch-actions">
+		<span class="progress-text">已刮除 {{ scratchPercent() | number: '1.0-0' }}%</span>
+		<button class="reveal-btn" [class.invisible]="scratchPercent() < 50" (click)="reveal()">🎯 開獎</button>
+	</div>
+	}
+
+	<!-- 重新開始 -->
+	@if (revealed()) {
+	<button class="restart-btn" (click)="restart()">🎲 再來一張</button>
+	}
+
+	<!-- 累積統計 -->
+	@if (totalPlays() > 0) {
+	<div class="stats">
+		<div class="stat-item">
+			<span class="stat-label">已玩</span>
+			<span class="stat-value">{{ totalPlays() }} 次</span>
+		</div>
+		<div class="stat-divider"></div>
+		<div class="stat-item">
+			<span class="stat-label">累積獎金</span>
+			<span class="stat-value highlight">${{ totalWinnings() | number }}</span>
+		</div>
+	</div>
+	}
+</div>
