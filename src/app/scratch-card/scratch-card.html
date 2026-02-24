@@ -71,13 +71,13 @@
 	</div>
 
 	<!-- 獎金機率按鈕 -->
-	<button class="info-btn" (click)="openPrizeTable()">📋 獎金機率表</button>
+	<button class="info-btn" (click)="openPrizeTable()">📋 中獎機率</button>
 
 	<!-- 獎金機率 Dialog -->
 	<dialog #prizeDialog class="prize-dialog" (click)="closePrizeTable()">
 		<div class="dialog-content" (click)="$event.stopPropagation()">
 			<div class="dialog-header">
-				<h2>🎰 獎金機率表</h2>
+				<h2>🎰 中獎機率</h2>
 				<button class="dialog-close" (click)="closePrizeTable()">✕</button>
 			</div>
 			<table class="prize-table">

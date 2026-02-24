@@ -23,19 +23,19 @@ interface Prize {
 }
 
 const PRIZES: Prize[] = [
-	{ amount: 0, weight: 35, message: '貢龜 🐢' },
+	{ amount: 0, weight: 8.7, message: '貢龜 🐢' },
 	{ amount: 100, weight: 20, message: '超爽 der 撿到一百塊雷~' },
-	{ amount: 200, weight: 15, message: '今晚吃大餐！' },
-	{ amount: 500, weight: 10, message: '哦哦哦哦~你是我的花朵🌸' },
-	{ amount: 1000, weight: 8, message: '一張小朋友！' },
+	{ amount: 200, weight: 25, message: '今晚吃大餐！' },
+	{ amount: 500, weight: 20, message: '哦哦哦哦~你是我的花朵🌸' },
+	{ amount: 1000, weight: 14, message: '一張小朋友！' },
 	{ amount: 2000, weight: 5, message: '提早下班~' },
 	{ amount: 5000, weight: 3, message: '明天請假！' },
 	{ amount: 10000, weight: 2, message: '該請客了吧！' },
 	{ amount: 50000, weight: 1, message: '下個月不上班' },
-	{ amount: 200000, weight: 0.5, message: '買房頭期款！' },
-	{ amount: 1000000, weight: 0.3, message: 'ALL IN 台積電了吧！' },
-	{ amount: 2000000, weight: 0.15, message: '現在買台積電還來的及!!!' },
-	{ amount: 10000000, weight: 0.05, message: '你是光你是電你是唯一的神話！' },
+	{ amount: 200000, weight: 0.6, message: '買房頭期款！' },
+	{ amount: 1000000, weight: 0.4, message: 'ALL IN 台積電了吧！' },
+	{ amount: 2000000, weight: 0.2, message: '現在買台積電還來的及!!!' },
+	{ amount: 10000000, weight: 0.1, message: '你是光你是電你是唯一的神話！' },
 ];
 
 const COINS: Coin[] = [
