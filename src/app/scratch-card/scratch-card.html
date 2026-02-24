@@ -54,7 +54,6 @@
 	}
 
 	<!-- 累積統計 -->
-	@if (totalPlays() > 0) {
 	<div class="stats">
 		<div class="stat-item">
 			<span class="stat-label">已玩</span>
@@ -66,5 +65,4 @@
 			<span class="stat-value highlight">${{ totalWinnings() | number }}</span>
 		</div>
 	</div>
-	}
 </div>

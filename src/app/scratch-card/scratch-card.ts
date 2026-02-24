@@ -23,19 +23,19 @@ interface Prize {
 }
 
 const PRIZES: Prize[] = [
-	{ amount: 0, weight: 35, message: '哈哈！貢龜 XD' },
-	{ amount: 100, weight: 20, message: '小確幸～' },
-	{ amount: 200, weight: 15, message: '不錯不錯 👍' },
-	{ amount: 500, weight: 10, message: '小獎到手！' },
-	{ amount: 1000, weight: 8, message: '千元入袋 💰' },
-	{ amount: 2000, weight: 5, message: '兩千大洋！讚！' },
-	{ amount: 5000, weight: 3, message: '五千塊！太幸運了 🎉' },
-	{ amount: 10000, weight: 2, message: '萬元大獎！🔥' },
-	{ amount: 50000, weight: 1, message: '五萬！！超級幸運 🍀' },
-	{ amount: 200000, weight: 0.5, message: '二十萬！！人生贏家 🏆' },
-	{ amount: 1000000, weight: 0.3, message: '百萬大獎！！！🤑🤑🤑' },
-	{ amount: 2000000, weight: 0.15, message: '兩百萬！！財富自由 💎' },
-	{ amount: 10000000, weight: 0.05, message: '🎆 超級大獎！！！🎆' },
+	{ amount: 0, weight: 35, message: '貢龜 🐢' },
+	{ amount: 100, weight: 20, message: '超爽 der 撿到一百塊雷~' },
+	{ amount: 200, weight: 15, message: '今晚吃大餐！' },
+	{ amount: 500, weight: 10, message: '哦哦哦哦~你是我的花朵🌸' },
+	{ amount: 1000, weight: 8, message: '一張小朋友！' },
+	{ amount: 2000, weight: 5, message: '提早下班~' },
+	{ amount: 5000, weight: 3, message: '明天請假！' },
+	{ amount: 10000, weight: 2, message: '該請客了吧！' },
+	{ amount: 50000, weight: 1, message: '下個月不上班' },
+	{ amount: 200000, weight: 0.5, message: '買房頭期款！' },
+	{ amount: 1000000, weight: 0.3, message: 'ALL IN 台積電了吧！' },
+	{ amount: 2000000, weight: 0.15, message: '現在買台積電還來的及!!!' },
+	{ amount: 10000000, weight: 0.05, message: '你是光你是電你是唯一的神話！' },
 ];
 
 const COINS: Coin[] = [
