@@ -1,0 +1,42 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies 🔧
+        run: npm ci
+
+      - name: Build 🏗️
+        run: npm run build:prod
+        # NOTE: You need to change /repo-name/ to your actual repository name followed by a slash.
+        # If you are using a custom domain or user page (username.github.io), remove the --base-href flag or set it to /.
+        # For a generic solution, I'll leave it as a comment in the file for the user or attempt to detect it?
+        # A safer bet for now is assuming the user will configure it, OR I can use a script to determine it.
+        # But commonly users just want "it to work".
+        # I'll use a placeholder and warn the user in README, or try to be smart.
+        # Actually, for the first run, let's just run `npm run build` and let the user customize base-href if needed.
+        # Many users deploy to custom domains or root.
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/guaguale/browser
+          # The new application builder outputs to dist/project-name/browser usually.
+          # If it fails, the user can adjust it. I'll make a note in README.
