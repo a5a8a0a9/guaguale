@@ -47,14 +47,14 @@
 		<div class="progress-bar" [style.width.%]="scratchPercent()"></div>
 	</div>
 	<div class="scratch-actions">
-		<span class="progress-text">已刮除 {{ scratchPercent() | number: '1.0-0' }}%</span>
+		<span class="progress-text">已刮開 {{ scratchPercent() | number: '1.0-0' }}%</span>
 		<button class="reveal-btn" [class.invisible]="scratchPercent() < 50" (click)="reveal()">🎯 開獎</button>
 	</div>
 	}
 
 	<!-- 重新開始 -->
 	@if (revealed()) {
-	<button class="restart-btn" (click)="restart()">🎲 再來一張</button>
+	<button class="restart-btn" (click)="restart()">🎲 我還要賭</button>
 	}
 
 	<!-- 累積統計 -->
